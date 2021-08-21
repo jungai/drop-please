@@ -1,4 +1,5 @@
 # drop-please
+
 notify everyone for drop card
 
 > required node that supported **esm** (node >= 14.7)
@@ -6,7 +7,6 @@ notify everyone for drop card
 ## Setup
 
 - install deps via **npm**, **yarn**, **pnpm** (recommend **pnpm**)
-
 
 ## Run in local
 
@@ -20,4 +20,4 @@ cat env > .env
 
 2. create a discord webhook and replace id & token
 
-3. run command `task` for execute function
+3. run scripts `task` for execute function
