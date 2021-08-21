@@ -1,0 +1,24 @@
+{
+  "name": "drop-please",
+  "version": "1.0.0",
+  "description": "drop card please !!",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "task": "node --experimental-json-modules index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jungai/drop-please.git"
+  },
+  "author": "jungai",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jungai/drop-please/issues"
+  },
+  "homepage": "https://github.com/jungai/drop-please#readme",
+  "dependencies": {
+    "discord.js": "^13.1.0",
+    "dotenv": "^10.0.0"
+  }
+}
