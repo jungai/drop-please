@@ -1,0 +1,31 @@
+#  Template NodeJS build
+
+#  This template allows you to validate your NodeJS code.
+#  The workflow allows running tests and code linting on the default branch.
+
+image: node:16.0.0x
+
+definitions:
+  caches:
+    pnpm: $BITBUCKET_CLONE_DIR/.pnpm-store
+
+pipelines:
+  default:
+      - step:
+          name: install pnpm
+          script:
+            - curl -f https://get.pnpm.io/v6.10.js | node - add --global pnpm@6
+            - pnpm install
+          caches:
+            - pnpm
+      - step:
+          name: create .env
+          script:
+            - |
+              touch .env
+              echo BOT_ID=$BOT_ID >> .env
+              echo BOT_TOKEN=$BOT_TOKEN >> .env
+      - step:
+          name: run task
+          script:
+            - pnpm task
