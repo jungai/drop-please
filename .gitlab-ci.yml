@@ -1,0 +1,26 @@
+image: node:16
+
+stages:
+    - env
+    - build
+
+env:
+    stage: env
+    script:
+        - |
+            touch .env
+            echo BOT_ID="$BOT_ID" >> .env
+            echo BOT_TOKEN="$BOT_TOKEN" >> .env
+
+build:
+    stage: build
+    before_script:
+        - curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
+        - pnpm config set store-dir .pnpm-store
+    script:
+        - pnpm install # install dependencies
+        - pnpm task # run task
+    cache:
+        key: "$CI_COMMIT_REF_SLUG"
+        paths:
+        - .pnpm-store
