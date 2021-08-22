@@ -12,13 +12,6 @@ definitions:
 pipelines:
   default:
       - step:
-          name: install pnpm
-          script:
-            - curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
-            - pnpm install
-          caches:
-            - pnpm
-      - step:
           name: create .env
           script:
             - |
@@ -26,6 +19,10 @@ pipelines:
               echo BOT_ID=$BOT_ID >> .env
               echo BOT_TOKEN=$BOT_TOKEN >> .env
       - step:
-          name: run task
+          name: build & run
           script:
+            - curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
+            - pnpm install
             - pnpm task
+          caches:
+            - pnpm
