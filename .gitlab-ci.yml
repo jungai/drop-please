@@ -10,7 +10,8 @@ build:
         - curl -f https://get.pnpm.io/v6.7.js | node - add --global pnpm@6
         - pnpm config set store-dir .pnpm-store
     script:
-        - (echo "$BOT_ENV" | base64 -d) > .env
+        - echo "BOT_ID=$BOT_ID" >> ".env"
+        - echo "BOT_TOKEN=$BOT_TOKEN" >> ".env"
         - pnpm install # install dependencies
         - pnpm task # run task
     cache:
