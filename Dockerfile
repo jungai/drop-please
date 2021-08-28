@@ -1,14 +1,15 @@
-FROM node:16
+FROM node:16.3-alpine3.12
 
 WORKDIR /app
 
 ENV TZ=Asia/Bangkok
 
-RUN dpkg-reconfigure -f noninteractive tzdata
-
-RUN echo "Asia/Bangkok" > /etc/timezone && \
-    curl -f https://get.pnpm.io/v6.14.js | node - add --global pnpm
-
+RUN apk update && \
+    apk upgrade && \
+    apk add --no-cache \
+    tzdata && \
+    echo "Asia/Bangkok" > /etc/timezone && \
+    npm install -g pnpm
 
 COPY ./package.json ./package.json
 COPY ./pnpm-lock.yaml ./pnpm-lock.yaml
