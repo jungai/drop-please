@@ -6,6 +6,8 @@ notify everyone for drop card
 
 ## With Docker
 
+> required BOT_ID, BOT_TOKEN, CRON_STR
+
 ```bash
 docker run \ 
   -e BOT_ID=BOT_ID \
