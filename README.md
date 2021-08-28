@@ -4,13 +4,14 @@ notify everyone for drop card
 
 > required node that supported **esm** (node >= 14.7)
 
-## Note
+## With Docker
 
-decide to use **gitlab ci** because
-
-1. github action schedule cron not triggering at the right time (delay) [issue](https://stackoverflow.com/questions/65132563/why-is-github-actions-workflow-scheduled-with-cron-not-triggering-at-the-right-t)
-
-2. bitbucket pipelines can't customize cron (e.g. 0,30 3-17 * * *)
+```bash
+docker run -e BOT_ID=BOT_ID \
+           -e BOT_TOKEN=BOT_TOKEN \
+           -e CRON_STR=CRON_STR \
+           kittn888/drop-karuta-please
+```
 
 ## Setup
 
