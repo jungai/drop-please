@@ -7,10 +7,11 @@ notify everyone for drop card
 ## With Docker
 
 ```bash
-docker run -e BOT_ID=BOT_ID \
-           -e BOT_TOKEN=BOT_TOKEN \
-           -e CRON_STR=CRON_STR \
-           kittn888/drop-karuta-please
+docker run \ 
+  -e BOT_ID=BOT_ID \
+  -e BOT_TOKEN=BOT_TOKEN \
+  -e CRON_STR=CRON_STR \
+  kittn888/drop-karuta-please
 ```
 
 ## Setup
