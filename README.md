@@ -2,6 +2,8 @@
 
 notify everyone for drop card
 
+> previous solution [branch old](https://github.com/jungai/drop-please/tree/old)
+
 > required node that supported **esm** (node >= 14.7)
 
 ## With Docker
@@ -9,7 +11,7 @@ notify everyone for drop card
 > required BOT_ID, BOT_TOKEN, CRON_STR
 
 ```bash
-docker run \ 
+docker run \
   -e BOT_ID=BOT_ID \
   -e BOT_TOKEN=BOT_TOKEN \
   -e CRON_STR=CRON_STR \
