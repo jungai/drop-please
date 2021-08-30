@@ -1,6 +1,6 @@
 {
   "name": "drop-karuta-please",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "drop card please !!",
   "type": "module",
   "main": "index.js",
