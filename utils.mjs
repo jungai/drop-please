@@ -29,6 +29,10 @@ export function getBotToken() {
   return getEnv("BOT_TOKEN");
 }
 
+export function getUserId() {
+  return getEnv("USER_ID");
+}
+
 export function getMessage() {
   return messages[Math.floor(Math.random() * messages.length)];
 }
