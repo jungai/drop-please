@@ -1,8 +1,9 @@
 #!/usr/bin/env zx
 
 (async () => {
+  const dockerUserName = "kittn888";
   const { name, version } = await fs.readJSON(__dirname + "/../package.json");
-  const imageName = `${name}:${version}`;
+  const imageName = `${dockerUserName}/${name}:${version}`;
   const platform = ["linux/amd64", "linux/arm64"];
 
   platform.forEach(async (arch) => {
