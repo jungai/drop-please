@@ -6,11 +6,12 @@ import {
   getMessage,
   getCronString,
   getUserId,
+  getCronStringTask2,
 } from "./utils.js";
 import cron from "node-cron";
 
 function checkEnvBeforeStart(
-  envs = [getBotToken, getBotId, getCronString, getUserId]
+  envs = [getBotToken, getBotId, getCronString, getUserId, getCronStringTask2]
 ) {
   return envs.reduce((_, fn) => fn(), "iu ❤️");
 }
@@ -78,7 +79,7 @@ async function task2() {
       timezone: "Asia/Bangkok",
     });
 
-    cron.schedule(getCronString(), task2, {
+    cron.schedule(getCronStringTask2(), task2, {
       timezone: "Asia/Bangkok",
     });
   } catch (error) {

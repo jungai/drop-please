@@ -21,6 +21,10 @@ export function getCronString() {
   return getEnv("CRON_STR");
 }
 
+export function getCronStringTask2() {
+  return getEnv("CRON_STR_TASK2");
+}
+
 export function getBotId() {
   return getEnv("BOT_ID");
 }
