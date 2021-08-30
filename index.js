@@ -7,7 +7,7 @@ import {
   getCronString,
   getUserId,
   getCronStringTask2,
-} from "./utils.js";
+} from "./utils.mjs";
 import cron from "node-cron";
 
 function checkEnvBeforeStart(
