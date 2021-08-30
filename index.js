@@ -1,9 +1,17 @@
 import "dotenv/config";
 import Discord from "discord.js";
-import { getBotToken, getBotId, getMessage, getCronString } from "./utils.mjs";
+import {
+  getBotToken,
+  getBotId,
+  getMessage,
+  getCronString,
+  getUserId,
+} from "./utils.js";
 import cron from "node-cron";
 
-function checkEnvBeforeStart(envs = [getBotToken, getBotId, getCronString]) {
+function checkEnvBeforeStart(
+  envs = [getBotToken, getBotId, getCronString, getUserId]
+) {
   return envs.reduce((_, fn) => fn(), "iu ❤️");
 }
 
@@ -29,15 +37,35 @@ async function task() {
     token: getBotToken(),
   });
 
-  //   embed things
+  // embed things
   const embed = new Discord.MessageEmbed()
     .setTitle(`🚨 ${getMessage()}`)
     .setColor("#e74c3c");
 
-  //   notify
+  // notify
   await hook.send({ embeds: [embed] });
 
   // destroy
+  hook.destroy();
+}
+
+async function task2() {
+  console.log(
+    "--- do task 2 ---",
+    new Date().toLocaleDateString(),
+    "->",
+    new Date().toLocaleTimeString()
+  );
+
+  // connect to discord
+  const hook = new Discord.WebhookClient({
+    id: getBotId(),
+    token: getBotToken(),
+  });
+
+  await hook.send(`${getUserId().split(",").join("  ")} กด work&vote ทีฮะ 📌`);
+
+  // // destroy
   hook.destroy();
 }
 
@@ -47,6 +75,10 @@ async function task() {
     checkIsValidCronStr();
 
     cron.schedule(getCronString(), task, {
+      timezone: "Asia/Bangkok",
+    });
+
+    cron.schedule(getCronString(), task2, {
       timezone: "Asia/Bangkok",
     });
   } catch (error) {
